@@ -1,0 +1,114 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun i
+
+      - name: Build
+        run: bun run lint
+
+  test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun i
+
+      - name: Test
+        run: bun run test
+
+  build:
+    name: Builds source into JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun i
+
+      - name: Build
+        run: bun run build
+
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - test
+      - lint
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun i
+
+      - name: Build
+        run: bun run build
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  create-release:
+    name: Create a release
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+
+      - name: Create Release Notes
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.request(`POST /repos/${{ github.repository }}/releases`, {
+              tag_name: "${{ github.ref }}",
+              generate_release_notes: true
+            });
