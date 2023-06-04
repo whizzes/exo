@@ -11,6 +11,8 @@
 		"strict": true,
 		"moduleResolution": "NodeNext",
 		"paths": {
+			"$lib":["./src/lib"],
+			"$lib/*":["./src/lib/*"],
 			"$src": [
 				"../src"
 			],
