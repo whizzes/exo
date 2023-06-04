@@ -30,7 +30,6 @@ jobs:
       - name: Build Check
         env:
           NODE_ENV: production
-
         run: bun run build
 
       - name: Run Lint Check
