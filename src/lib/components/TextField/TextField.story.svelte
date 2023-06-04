@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Counter from '$lib/components/Counter.svelte';
+  import TextField from './TextField.svelte';
 
   import type { Hst as Histoire } from '@histoire/plugin-svelte';
 
@@ -7,5 +7,5 @@
 </script>
 
 <Hst.Story>
-  <Counter />
+  <TextField />
 </Hst.Story>
