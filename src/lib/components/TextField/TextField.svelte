@@ -9,9 +9,7 @@
   import classNames from "classnames";
   import { createEventDispatcher } from "svelte";
 
-  // import Warning from '~icons/custom/warning';
-
-  import "../../../app.css";
+  import "$src/app.css";
 
   export let autoComplete: string | undefined = undefined;
   export let error: string | undefined = undefined;
@@ -26,7 +24,6 @@
   export let variant: TextFieldVariant = TextFieldVariant.Default;
   export let disabled = false;
   export let className = "";
-  export let icon: any = undefined;
   export { className as class };
 
   let TEXT_FIELD_INPUT_CLASS: string;
@@ -46,10 +43,6 @@
     dispatch("input", {
       value,
     });
-  };
-
-  const handleIconClick = (): void => {
-    dispatch("clickIcon");
   };
 
   $: {
@@ -80,6 +73,7 @@
       {disabled}
       {step}
       id={name}
+      data-testid="text_field-{name}"
       autocomplete={autoComplete}
       tabindex={tabIndex}
       aria-invalid="false"
@@ -88,23 +82,12 @@
       class={TEXT_FIELD_INPUT_CLASS}
       on:input={handleInput}
     />
-    {#if icon}
-      <div on:mousedown={handleIconClick}>
-        <svelte:component
-          this={icon}
-          class="absolute h-8 w-8 inset-y-0 right-0 pt-2 pr-2 flex items-center leading-5"
-        />
-      </div>
-    {/if}
   </div>
   <div
     class:hidden={!error}
     class:flex={!!error}
     class="text-sm text-rose-500 items-center space-x-2 py-2"
   >
-    <figure class="flex justify-center items-center">
-      <!-- <Warning /> -->
-    </figure>
     <span>{error}</span>
   </div>
 </div>
