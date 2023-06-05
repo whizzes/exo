@@ -7,6 +7,7 @@
 
   let name = "Name";
   let value = "Hello World";
+  let placeholder = "Enter your first name";
   let disabled = false;
   let variant = TextFieldVariant.Default;
 </script>
@@ -14,6 +15,7 @@
 <Hst.Story>
   <TextField
     {name}
+    {placeholder}
     {variant}
     {disabled}
     bind:value={value}
@@ -21,6 +23,7 @@
   <svelte:fragment slot="controls">
     <Hst.Text bind:value={name} title="Name" />
     <Hst.Text bind:value={value} title="Value" />
+    <Hst.Text bind:value={placeholder} title="Placeholder" />
     <Hst.Select
       title="Variant"
       bind:value={variant}
