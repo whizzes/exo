@@ -1,0 +1,3 @@
+/src/**/*.story.md
+/src/**/*.story.svelte
+/src/**/*.test.ts

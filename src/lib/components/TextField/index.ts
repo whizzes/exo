@@ -1,1 +1,1 @@
-export { default as TextField, TextFieldVariant } from './TextField';
+export { default as TextField, TextFieldVariant } from './TextField.svelte';
