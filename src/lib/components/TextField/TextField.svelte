@@ -9,8 +9,6 @@
   import classNames from "classnames";
   import { createEventDispatcher } from "svelte";
 
-  import "$src/app.css";
-
   export let autoComplete: string | undefined = undefined;
   export let error: string | undefined = undefined;
   export let label: string | undefined = undefined;
