@@ -1,6 +1,6 @@
 <script lang="ts">
-  import TextField, { TextFieldVariant } from "./TextField.svelte";
-  
+  import { TextField, TextFieldVariant } from "$lib";
+
   import type { Hst as Histoire } from "@histoire/plugin-svelte";
 
   export let Hst: Histoire;
