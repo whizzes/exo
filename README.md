@@ -16,6 +16,46 @@
 
 </div>
 
+## Getting Started
+
+1. Install `@whizzes/exo`
+
+```
+npm i -D @whizzes/exo
+```
+
+2. Add the package to Svelte Scope
+
+```diff
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
++    './node_modules/@whizzes/exo/**/*.{html,js,svelte,ts}'
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      }
+    },
+    variants: {
+      extend: {}
+    },
+    plugins: [require('@tailwindcss/forms')]
+  }
+};
+```
+
+> Refer to the following links for details on why this is required
+>
+> https://github.com/svelte-add/svelte-add/issues/180
+> https://github.com/cozemble/json-schema-data-editor/issues/6
+> https://adamtuttle.codes/blog/2023/tailwind-svelte-design-system/
+
 ## Development
 
 ```bash
