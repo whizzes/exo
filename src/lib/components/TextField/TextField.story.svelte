@@ -8,8 +8,8 @@
   let name = "Name";
   let value = "Hello World";
   let placeholder = "Enter your first name";
-  let disabled = false;
   let variant = TextFieldVariant.Default;
+  let disabled = false;
 </script>
 
 <Hst.Story>
