@@ -29,6 +29,7 @@ module.exports = {
           base: "#F7F7F7",
           border: "#E8E8E8",
           pressed: "#A4A4A4",
+          "content-2": "#585757"
         },
       },
       fontFamily: {

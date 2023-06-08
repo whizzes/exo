@@ -31,7 +31,7 @@
 
   const inputContainerClassNames = classNames(
     TEXT_FIELD_CLASS_NAMES,
-    !!error && "border-rose-200!"
+    !!error && "border-exo-red-base!"
   );
 
   const dispatch = createEventDispatcher();
@@ -46,8 +46,8 @@
   $: {
     TEXT_FIELD_INPUT_CLASS = classNames(
       variant === TextFieldVariant.Default &&
-        "border border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-lg",
-      "exo-gray-50 text-gray-900 text-sm block w-full p-2.5 dark:exo-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+        "border border-exo-grayscale-border focus:ring-exo-blue-base focus:border-exo-blue-base rounded-lg",
+      "bg-white text-exo-grayscale-content-2 text-base block w-full p-2.5",
       type === "number" && "font-mono",
       className
     );
@@ -84,7 +84,7 @@
   <div
     class:hidden={!error}
     class:flex={!!error}
-    class="text-sm text-rose-500 items-center space-x-2 py-2"
+    class="text-sm text-exo-red-base items-center space-x-2 py-2"
   >
     <span>{error}</span>
   </div>

@@ -6,8 +6,8 @@
     export let Hst: Histoire;
 
     let variant = ButtonVariant.Primary;
-    let disabled = false;
     let size = ButtonSize.Large;
+    let disabled = false;
 </script>
 
 <Hst.Story>
@@ -19,6 +19,11 @@
       title="Variant"
       bind:value={variant}
       options={Object.values(ButtonVariant)}
+    />
+    <Hst.Select
+      title="Size"
+      bind:value={size}
+      options={Object.values(ButtonSize)}
     />
   </svelte:fragment>
 </Hst.Story>
