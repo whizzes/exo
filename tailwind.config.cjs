@@ -7,8 +7,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'exo-black': "1C1C1C",
-
         'exo-blue': {
           base: "#0085FF",
           hover: "#339DFF",
@@ -26,10 +24,12 @@ module.exports = {
         },
 
         'exo-grayscale': {
-          base: "#F7F7F7",
-          border: "#E8E8E8",
+          "content-1": "1C1C1C",
+          "content-2": "#585757",
           pressed: "#A4A4A4",
-          "content-2": "#585757"
+          border: "#E8E8E8",
+          "background-secondary": "#F7F7F7",
+          "background-primary": "#FFFFFF",
         },
       },
       fontFamily: {

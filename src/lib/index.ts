@@ -5,6 +5,7 @@ export {
 
 export {
   default as Button,
-  ButtonVariant,
+  ButtonStyle,
   ButtonSize,
+  ButtonType,
 } from '$lib/components/Button/Button.svelte';
