@@ -7,12 +7,12 @@
 
     let style = ButtonStyle.Primary;
     let size = ButtonSize.Large;
-    let type = ButtonType.Default
+    let btnType = ButtonType.Default
     let disabled = false;
 </script>
 
 <Hst.Story>
-    <Button {type} {size} {style} {disabled}>
+    <Button {btnType} {size} {style} {disabled}>
       Button
     </Button>
     <svelte:fragment slot="controls">
@@ -28,7 +28,7 @@
     />
     <Hst.Select
     title="Type"
-    bind:value={type}
+    bind:value={btnType}
     options={Object.values(ButtonType)}
   />
     <Hst.Checkbox bind:value={disabled} title="Disabled" />
