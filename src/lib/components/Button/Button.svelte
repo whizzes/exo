@@ -20,7 +20,7 @@
     import classNames from "classnames";
 
     export let type: "button" | "submit" = "button";
-    export let variant: ButtonStyle = ButtonStyle.Primary;
+    export let style: ButtonStyle = ButtonStyle.Primary;
     export let size: ButtonSize = ButtonSize.Medium;
     export let btnType: ButtonType = ButtonType.Default;
     export let isLoading = false;
@@ -40,13 +40,13 @@
 
     $: {
         BUTTON_CLASS = classNames(
-            "flex justify-center items-center cursor-pointer rounded-md rounded shadow disabled:cursor-not-allowed disabled:opacity-40",
-            variant === ButtonStyle.Primary && PRIMARY_BUTTON_CLASSES,
-            variant === ButtonStyle.Secondary && SECONDARY_BUTTON_CLASSES,
+            "flex justify-center items-center cursor-pointer rounded-md rounded shadow",
+            style === ButtonStyle.Primary && PRIMARY_BUTTON_CLASSES,
+            style === ButtonStyle.Secondary && SECONDARY_BUTTON_CLASSES,
             size === ButtonSize.Large && "px-3 py-3 w-full",
             size === ButtonSize.Medium && "px-2 py-2",
             size === ButtonSize.Small && "px-0.5 text-sm py-1",
-            disabled && "!exo-gray-600 !border-0 !cursor-not-allowed",
+            disabled && "!opacity-40 !cursor-not-allowed",
             isLoading && "opacity-[90%] !cursor-not-allowed",
             className
         );
