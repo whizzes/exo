@@ -36,7 +36,7 @@
     export const PRIMARY_BUTTON_CLASSES =
         "bg-exo-blue-base text-white hover:bg-exo-blue-hover active:bg-exo-blue-pressed";
     export const SECONDARY_BUTTON_CLASSES =
-        "border border-exo-grayscale-border bg-white text-exo-black hover:bg-exo-grayscale-base disabled:text-exo-grayscale-pressed";
+        "border border-exo-grayscale-border bg-white text-exo-black hover:bg-exo-grayscale-background-secondary disabled:text-exo-grayscale-pressed";
 
     $: {
         BUTTON_CLASS = classNames(
