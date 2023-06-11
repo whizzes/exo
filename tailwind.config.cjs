@@ -14,7 +14,6 @@ module.exports = {
           border: "#CCE7FF",
           background: "#E5F3FF",
         },
-
         'exo-red':{
           base: "#E92C2C",
           hover: "#ED5656",
@@ -22,7 +21,6 @@ module.exports = {
           border: "#FBD5D5",
           background: "#FFECEC",
         },
-
         'exo-grayscale': {
           "content-1": "1C1C1C",
           "content-2": "#585757",
@@ -35,9 +33,6 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
       }
-    },
-    variants: {
-      extend: {}
     },
     plugins: [require('@tailwindcss/forms')]
   }
