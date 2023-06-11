@@ -8,8 +8,6 @@
 <div align="center">
 
 [![Discord](https://img.shields.io/discord/1011702194925490186?color=blue&label=discord&logo=discord)](https://discord.gg/yde6mcgs2C)
-![CI](https://github.com/whizzes/exo/workflows/ci/badge.svg)
-![Pages](https://github.com/whizzes/exo/workflows/pages/badge.svg)
 ![Publish](https://github.com/whizzes/exo/workflows/publish/badge.svg)
 [![Version](https://img.shields.io/npm/v/@whizzes/exo.svg?style=flat)](https://www.npmjs.com/package/@whizzes/exo)
 [![Downloads](https://img.shields.io/npm/dm/@whizzes/exo.svg?style=flat)](https://www.npmjs.com/package/@whizzes/exo)
@@ -60,6 +58,14 @@ module.exports = {
 
 ```bash
 bun run story:dev
+```
+
+### Setting up for Local Use
+
+Include Exo as a local dependecy by clonning and building the project locally.
+
+```json
+    "@whizzes/exo": "file:../exo",
 ```
 
 ## Cloudflare Pages Preview Environments
