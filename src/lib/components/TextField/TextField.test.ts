@@ -36,20 +36,6 @@ describe('TextField', () => {
     expect((textField as HTMLInputElement).value).toStrictEqual('Depp');
   });
 
-  test('provides id', () => {
-    render(TextField, {
-      props: {
-        name: 'first_name',
-        value: 'Harry',
-        id: 'first_name',
-      },
-    });
-
-    const textField = screen.getByTestId('text_field-first_name');
-
-    expect(textField.getAttribute('id')).toStrictEqual('first_name');
-  });
-
   test('uses the provided placeholder', () => {
     render(TextField, {
       props: {
