@@ -62,6 +62,13 @@ module.exports = {
 bun run story:dev
 ```
 
+## Cloudflare Pages Preview Environments
+
+Every time you open a new pull request, Cloudflare Pages will create a unique
+preview URL, which will stay updated as you continue to push new commits to the
+branch. This is only true when pull requests originate from the repository
+itself.
+
 ## References
 
 Check out all the available controls in their book: controls.histoire.dev.
