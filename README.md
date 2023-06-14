@@ -22,37 +22,11 @@
 npm i -D @whizzes/exo
 ```
 
-2. Add the package to Svelte Scope
+2. Import styles in the `+layout.svelte` script section
 
-```diff
-const defaultTheme = require('tailwindcss/defaultTheme');
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './src/**/*.{html,js,svelte,ts}',
-+    './node_modules/@whizzes/exo/**/*.{html,js,svelte,ts}'
-  ],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans]
-      }
-    },
-    variants: {
-      extend: {}
-    },
-    plugins: [require('@tailwindcss/forms')]
-  }
-};
+```ts
+import '@whizzes/exo/dist/styles.css';
 ```
-
-> Refer to the following links for details on why this is required
->
-> https://github.com/svelte-add/svelte-add/issues/180
-> https://github.com/cozemble/json-schema-data-editor/issues/6
-> https://adamtuttle.codes/blog/2023/tailwind-svelte-design-system/
 
 ## Development
 
@@ -65,7 +39,7 @@ bun run story:dev
 Include Exo as a local dependecy by clonning and building the project locally.
 
 ```json
-    "@whizzes/exo": "file:../exo",
+  "@whizzes/exo": "file:../exo",
 ```
 
 ## Cloudflare Pages Preview Environments
