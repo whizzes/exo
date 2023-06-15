@@ -46,7 +46,7 @@
   $: {
     TEXT_FIELD_INPUT_CLASS = classNames(
       variant === TextFieldVariant.Default &&
-        "border border-exo-grayscale-border focus:ring-exo-blue-base focus:border-exo-blue-base rounded-lg",
+        "border border-exo-grayscale-border outline-none focus:border-exo-blue-base rounded-lg",
       "bg-white text-exo-grayscale-content-2 text-base block w-full p-2.5",
       type === "number" && "font-mono",
       className
