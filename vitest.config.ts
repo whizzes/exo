@@ -15,7 +15,7 @@ export default defineConfig({
       branches: COVERAGE_THRESHOLD,
       functions: COVERAGE_THRESHOLD,
       statements: COVERAGE_THRESHOLD,
-      reporter: ['text', 'json-summary', 'json'],
+      reporter: ['text', 'json-summary', 'json', 'html'],
     }
   },
   resolve: {
