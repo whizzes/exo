@@ -14,12 +14,17 @@
         Default = "Default",
         Fixed = "Fixed"
     }
+
+    export const PRIMARY_BUTTON_CLASSES =
+        "bg-exo-blue-base text-white hover:bg-exo-blue-hover active:bg-exo-blue-pressed";
+    export const SECONDARY_BUTTON_CLASSES =
+        "border border-exo-grayscale-border bg-white text-exo-black hover:bg-exo-grayscale-background-secondary disabled:text-exo-grayscale-pressed";
 </script>
 
 <script lang="ts">
     import classNames from "classnames";
     import { createEventDispatcher } from "svelte";
-    
+
     export let type: "button" | "submit" = "button";
     export let style: ButtonStyle = ButtonStyle.Primary;
     export let size: ButtonSize = ButtonSize.Medium;
@@ -34,10 +39,6 @@
     export { className as class };
 
     const dispatch = createEventDispatcher();
-    const PRIMARY_BUTTON_CLASSES =
-        "bg-exo-blue-base text-white hover:bg-exo-blue-hover active:bg-exo-blue-pressed";
-    const SECONDARY_BUTTON_CLASSES =
-        "border border-exo-grayscale-border bg-white text-exo-black hover:bg-exo-grayscale-background-secondary disabled:text-exo-grayscale-pressed";
 
     let buttonClass: string;
     let containerClassNames: string;
@@ -66,7 +67,7 @@
     disabled={disabled || isLoading}
     on:click={() => !disabled && !isLoading && dispatch("click")}
 >
-    <div class={buttonClass}>
+    <div class={buttonClass} data-testid="button-inner-{name}">
         {#if leftIcon}
             <figure class="h-6 w-6">
                 <svelte:component this={leftIcon} class="h-6 w-6 text-inherit" />

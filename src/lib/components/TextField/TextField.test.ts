@@ -107,4 +107,34 @@ describe('TextField', () => {
 
     expect(textField.getAttribute('disabled')).toStrictEqual('');
   });
+
+  test('applies the error class', () => {
+    render(TextField, {
+      props: {
+         name: 'foo',
+         label: 'Im Blocked!',
+         error: true, 
+        },
+    });
+
+    const textField = screen.getByTestId('text_field-foo');
+    const classes = textField.getAttribute('class');
+
+    expect(classes).toContain('border-exo-red-base!');
+  });
+
+  test('applies the classes if type is number', () => {
+    render(TextField, {
+      props: {
+         name: 'foo',
+         label: 'Im Blocked!',
+         type: 'number', 
+        },
+    });
+
+    const textField = screen.getByTestId('text_field-foo');
+    const classes = textField.getAttribute('class');
+
+    expect(classes).toContain('font-mono');
+  });
 });
