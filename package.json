@@ -1,6 +1,6 @@
 {
   "name": "@whizzes/exo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "build": "vite build && npm run package && npm run css:build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
