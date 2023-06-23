@@ -77,7 +77,11 @@ describe('Button', () => {
 
   test('applies the secondary variant style', () => {
     const { getByTestId } = render(Button, {
-      props: { name: 'foo', label: 'Im Blocked!', style: ButtonStyle.Secondary },
+      props: {
+        name: 'foo',
+        label: 'Im Blocked!',
+        style: ButtonStyle.Secondary,
+      },
     });
 
     const buttonEl = getByTestId('button-inner-foo');

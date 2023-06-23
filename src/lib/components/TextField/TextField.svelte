@@ -6,7 +6,6 @@
 </script>
 
 <script lang="ts">
-  import classNames from "classnames";
   import { createEventDispatcher } from "svelte";
 
   export let autoComplete: string | undefined = undefined;
@@ -24,16 +23,6 @@
   export let className = "";
   export { className as class };
 
-  let TEXT_FIELD_INPUT_CLASS: string;
-
-  const TEXT_FIELD_CLASS_NAMES =
-    "relative transition-[background-color] transition-[box-shadow] duration-200 h-[44px] min-w-full w-full rounded-md inline-flex";
-
-  const inputContainerClassNames = classNames(
-    TEXT_FIELD_CLASS_NAMES,
-    !!error && "border-exo-red-base!"
-  );
-
   const dispatch = createEventDispatcher();
   const handleInput = (event: Event): void => {
     const target = event.target as HTMLInputElement;
@@ -42,26 +31,16 @@
       value,
     });
   };
-
-  $: {
-    TEXT_FIELD_INPUT_CLASS = classNames(
-      variant === TextFieldVariant.Default &&
-        "border border-exo-grayscale-border outline-none focus:border-exo-blue-base rounded-lg",
-      "bg-white text-exo-grayscale-content-2 text-base block w-full p-2.5",
-      type === "number" && "font-mono",
-      className
-    );
-  }
 </script>
 
-<div class="flex flex-col justify-start no-wrap">
+<div class="flex flex-col justify-start">
   <label
     for={name}
-    class="mb-2 text-sm font-medium text-gray-900 dark:text-white"
+    class="mb-2 text-sm font-medium text-gray-900"
     hidden={!label}
     >{label}
   </label>
-  <div class={inputContainerClassNames}>
+  <div>
     <input
       {name}
       {type}
@@ -77,15 +56,54 @@
       aria-invalid="false"
       aria-label="{name}-input"
       aria-required={required ? "true" : "false"}
-      class={TEXT_FIELD_INPUT_CLASS}
+      class={className}
+      class:base={true}
+      class:error={!!error}
+      class:variant_default={variant === TextFieldVariant.Default}
+      class:variant_transparent={variant === TextFieldVariant.Transparent}
+      class:font-mono={type === "number"}
+      class:disabled={disabled}
       on:input={handleInput}
     />
   </div>
   <div
     class:hidden={!error}
-    class:flex={!!error}
-    class="text-sm text-exo-red-base items-center space-x-2 py-2"
+    class="flex text-sm text-exo-red-base items-center space-x-2 py-2"
   >
     <span>{error}</span>
   </div>
 </div>
+
+<style lang="postcss">
+  .base {
+    @apply transition-[background-color];
+    @apply transition-[box-shadow] duration-200;
+    @apply rounded-md inline-flex bg-white text-exo-grayscale-content-2;
+    @apply block w-full p-2;
+  }
+
+  .variant_default {
+    @apply border border-exo-grayscale-border outline-none rounded-lg;
+  }
+
+  .variant_default:focus {
+    @apply border-exo-blue-base;
+  }
+
+
+  .variant_transparent {
+    @apply border border-exo-grayscale-border outline-none rounded-lg;
+  }
+
+  .variant_transparent:focus {
+    @apply border-exo-blue-base;
+  }
+
+  .error {
+    @apply border border-exo-red-base;
+  }
+
+  .disabled {
+    @apply cursor-not-allowed bg-exo-grayscale-content-1;
+  }
+</style>

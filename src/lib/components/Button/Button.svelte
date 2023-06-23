@@ -29,7 +29,7 @@
     export let style: ButtonStyle = ButtonStyle.Primary;
     export let size: ButtonSize = ButtonSize.Medium;
     export let btnType: ButtonType = ButtonType.Default;
-    export let name: string;
+    export let name: string = 'untitled';
     export let label: string = '';
     export let isLoading = false;
     export let disabled = false;
