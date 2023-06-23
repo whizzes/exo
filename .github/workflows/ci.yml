@@ -14,6 +14,11 @@ jobs:
   ci:
     name: Continuous Integration
     runs-on: ubuntu-latest
+    permissions:
+      # Required to checkout the code
+      contents: read
+      # Required to put a comment into the pull-request
+      pull-requests: write
 
     steps:
       - name: Checkout Source
@@ -37,3 +42,10 @@ jobs:
 
       - name: Run Unit Tests
         run: bun run test
+
+      - name: 'Test'
+        run: npx vitest --coverage
+      
+      - name: 'Report Coverage'
+        if: always()
+        uses:  davelosert/vitest-coverage-report-action@v1
