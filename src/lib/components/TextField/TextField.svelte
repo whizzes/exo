@@ -36,7 +36,7 @@
 <div class="flex flex-col justify-start">
   <label
     for={name}
-    class="mb-2 text-sm font-medium text-gray-900"
+    class="mb-2 text-base font-medium text-exo-grayscale-content-2"
     hidden={!label}
     >{label}
   </label>
@@ -83,11 +83,7 @@
   }
 
   .variant_default {
-    @apply border border-exo-grayscale-border outline-none rounded-lg;
-  }
-
-  .variant_default:focus {
-    @apply border-exo-blue-base;
+    @apply border focus:border-exo-blue-base focus:shadow-[0_0_5px_1px_rgba(0,0,0,38)] focus:shadow-exo-blue-base/40 border-exo-grayscale-border outline-none rounded-lg;
   }
 
 
@@ -100,10 +96,10 @@
   }
 
   .error {
-    @apply border border-exo-red-base;
+    @apply border focus:border-exo-red-base focus:shadow-[0_0_5px_1px_rgba(0,0,0,38)] focus:shadow-exo-red-base/40 border-exo-red-base;
   }
 
   .disabled {
-    @apply cursor-not-allowed bg-exo-grayscale-content-1;
+    @apply cursor-not-allowed opacity-40 bg-exo-grayscale-content-1;
   }
 </style>
