@@ -5,6 +5,7 @@
   import TextField, { TextFieldVariant } from "@whizzes/exo";
 
   let name = "Name";
+  let label = "Label"
   let value = "Hello World";
   let placeholder = "Enter your first name";
   let disabled = false;
@@ -13,6 +14,7 @@
 
 <TextField
   {name}
+  {label}
   {variant}
   {placeholder}
   {disabled}
