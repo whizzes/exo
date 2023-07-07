@@ -11,6 +11,10 @@ export {
 } from '$lib/components/Card/Card.svelte';
 
 export {
+  default as Switch,
+} from '$lib/components/Switch/Switch.svelte';
+
+export {
   default as TextField,
   TextFieldVariant,
 } from '$lib/components/TextField/TextField.svelte';
