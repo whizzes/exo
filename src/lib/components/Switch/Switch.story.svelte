@@ -9,7 +9,7 @@
 </script>
 <Hst.Story>
     <Switch 
-     {disabled}
+      {disabled}
     />
     <svelte:fragment slot="controls">
         <Hst.Checkbox bind:value={disabled} title="Disabled" />
