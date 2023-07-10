@@ -1,8 +1,9 @@
 <script lang="ts">
+   export let name: string;
    export let disabled: boolean;
 </script>
 <div>
-   <input type="checkbox" id="switch" {disabled}>
+   <input type="checkbox" id="switch" {disabled} data-testid="switch-{name}">
    <label class="base" for="switch" class:disabled={disabled}></label>
 </div>
 
