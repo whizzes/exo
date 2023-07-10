@@ -100,6 +100,6 @@
   }
 
   .disabled {
-    @apply cursor-not-allowed opacity-40 bg-exo-grayscale-content-1;
+    @apply cursor-not-allowed opacity-40 bg-exo-grayscale-black;
   }
 </style>

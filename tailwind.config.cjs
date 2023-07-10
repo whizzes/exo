@@ -22,7 +22,7 @@ module.exports = {
           background: "#FFECEC",
         },
         'exo-grayscale': {
-          "content-1": "1C1C1C",
+          "black": "1C1C1C",
           "content-2": "#585757",
           pressed: "#A4A4A4",
           border: "#E8E8E8",

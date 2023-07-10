@@ -5,8 +5,13 @@
 
     export let Hst: Histoire;
 
-    let id = "switch"
+    let disabled = false;
 </script>
 <Hst.Story>
-    <Switch />
+    <Switch 
+     {disabled}
+    />
+    <svelte:fragment slot="controls">
+        <Hst.Checkbox bind:value={disabled} title="Disabled" />
+    </svelte:fragment>
 </Hst.Story>

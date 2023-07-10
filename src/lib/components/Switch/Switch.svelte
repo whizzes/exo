@@ -1,27 +1,33 @@
 <script lang="ts">
-    export let value: boolean;
-    export let id: string;
+   export let disabled: boolean;
 </script>
-
 <div>
-   <input type="checkbox" {id} class="switch" >
-   <label class="base" for={id}></label>
+   <input type="checkbox" id="switch" {disabled}>
+   <label class="base" for="switch" class:disabled={disabled}></label>
 </div>
 
 <style lang="postcss">
  .base{
-    @apply bg-exo-grayscale-border h-7 w-14 inline-block rounded-full relative cursor-pointer;
+    @apply bg-exo-grayscale-border duration-200 h-7 w-14 inline-block rounded-full relative cursor-pointer;
  }
 
  .base::after {
-    @apply content-[''] h-5 w-5 bg-white block absolute rounded-full top-1 left-1
+    @apply content-[''] h-5 w-5 bg-white block absolute rounded-full top-1 left-1 duration-300 drop-shadow-md
  }
 
- .switch:checked + .base::after {
-   @apply left-3
+ #switch:checked + .base::after {
+   @apply left-8 
  }
 
- .switch:checked + .base {
+ #switch:checked + .base {
    @apply bg-exo-blue-base
  }
+
+ #switch {
+   @apply hidden
+ }
+
+ .disabled {
+    @apply cursor-not-allowed opacity-40;
+  }
 </style>
